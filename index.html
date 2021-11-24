@@ -6,42 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Weather API</title>
+    <title>Cat API</title>
 </head>
 
 <body>
-    <h1>Weather</h1>
-    <h2>Put any Country and see the Weather</h2>
-    <input id="inputField" type="text" placeholder="Which Country?">
-    <button id="inputFieldBtn">Send</button>
-    <label for="forecastDays"></label>
-    <select name="forecastDays" id="forecastDays">
-        <option value="none" selected>None</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
+    <h1>Cats</h1>
+    <h2>Press the random button to get a random Image/GIF of a cat</h2>
+    <button id="inputFieldBtn">Random</button> <br> <br>
+
+    <h2>Or choose a race and then press the Race button to get specific information.</h2>
+    <button id="catRaceBtn">Race</button>
+
+    <label for="catRace"></label>
+    <select name="catRace" id="catSelect">
+        <option selected value="none">None</option>
     </select>
-
-    <div id="container">
-        <ul id="listContainer">
-            <!-- <h2 id="countryTitle">Sweden</h2> -->
-            <!-- <h3>Today:</h3>
-            <p>Temperature: 7&#176; Celsius</p>
-            <p>Wind: 9km/h</p>
-            <h3>Forecast</h3>
-            <li>day1</li>
-            <li>day2</li>
-            <li>day3</li>
-            <p>&deg;</p> -->
-
-
-
-        </ul>
-
-
-
-
-    </div>
+    <ul id="listContainer">
+    </ul>
 
     <script src="js/main.js"></script>
 </body>
