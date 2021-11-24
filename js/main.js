@@ -16,8 +16,6 @@ When pressed, uses the selected option value and grabs a picture and description
 Third fetch is used for a random picture or gif.
 */
 
-
-
 fetch("https://api.thecatapi.com/v1/breeds")
     .then((response => response.json()))
     .then((data => {
