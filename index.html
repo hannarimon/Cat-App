@@ -10,20 +10,28 @@
 </head>
 
 <body>
-    <h1>Cats</h1>
-    <h2>Press the random button to get a random image/gif of a cat</h2>
-    <button id="randomBtn">Random</button> <br> <br>
 
-    <h2>Or choose a breed and then press the Breed button to get specific information.</h2>
-    <button id="catBreedBtn">Breed</button>
+    <div class="gridContainer">
+        <h1 class="catTitle">Cats</h1>
 
-    <label for="catBreed"></label>
-    <select name="catBreed" id="catSelect">
-        <option selected value="none">None</option>
-    </select>
-    <ul id="listContainer">
-    </ul>
+        <section class="randomSect">
+            <h2 class="randomTitle">Press me for a surprise :)</h2>
+            <button id="randomBtn">Random</button>
+        </section>
 
+        <section class="breedSect">
+            <h2 class="breedTitle">Or choose what you get if you are a control freak :(</h2>
+            <p id="errorMessage"></p>
+            <button id="catBreedBtn">Breed</button>
+            <label for="catBreed"></label>
+            <select name="catBreed" id="catSelect">
+                <option selected value="none">None</option>
+            </select>
+        </section>
+
+        <ul id="listContainer">
+        </ul>
+    </div>
     <script src="js/main.js"></script>
 </body>
 

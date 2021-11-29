@@ -2,6 +2,7 @@ let randomBtn = document.querySelector("#randomBtn");
 let listContainer = document.querySelector("#listContainer");
 let catSelect = document.querySelector("#catSelect");
 let catBreedBtn = document.querySelector("#catBreedBtn");
+let errorMessage = document.querySelector("#errorMessage");
 
 /* 
 https://docs.thecatapi.com/
@@ -25,37 +26,41 @@ fetch("https://api.thecatapi.com/v1/breeds")
         };
 
         catBreedBtn.addEventListener("click", function () {
-            // console.log(catSelect.value);
-            fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${catSelect.value}`)
-                .then((response => response.json()))
-                .then((data => {
-                    let image = document.createElement("img");
-                    let container = document.createElement("div");
-                    container.style.height = "450px";
-                    container.style.width = "450px";
-                    container.style.display = "inline-block";
-                    container.innerHTML += `<p>${data[0].breeds[0].description}</p>`;
-                    image.style.height = "450px";
-                    image.style.width = "450px";
-                    image.src = data[0].url;
-                    listContainer.append(container);
-                    container.append(image);
-                }));
+            if (catSelect.value == "none") {
+                errorMessage.innerHTML = "You have to choose a breed :)";
+            } else {
+                errorMessage.innerHTML = "";
+                fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${catSelect.value}`)
+                    .then((response => response.json()))
+                    .then((data => {
+                        let image = document.createElement("img");
+                        let container = document.createElement("div");
+                        container.style.height = "470px";
+                        container.style.width = "470px";
+                        container.style.display = "inline-block";
+                        container.innerHTML += `<p>${data[0].breeds[0].description}</p>`;
+                        image.style.height = "470px";
+                        image.style.width = "470px";
+                        image.src = data[0].url;
+                        listContainer.append(container);
+                        container.append(image);
+                    }));
+            };
         });
     }));
 
-    randomBtn.addEventListener("click", function () {
+randomBtn.addEventListener("click", function () {
     fetch("https://api.thecatapi.com/v1/images/search")
         .then((response => response.json()))
         .then((data => {
             let catData = data[0];
             let image = document.createElement("img");
             let container = document.createElement("div");
-            container.style.height = "450px";
-            container.style.width = "450px";
+            container.style.height = "470px";
+            container.style.width = "470px";
             container.style.display = "inline-block";
-            image.style.height = "450px";
-            image.style.width = "450px";
+            image.style.height = "470px";
+            image.style.width = "470px";
             image.src = catData.url;
             listContainer.append(container);
             container.append(image);
